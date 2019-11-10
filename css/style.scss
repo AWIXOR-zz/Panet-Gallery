@@ -1,0 +1,438 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500");
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    background: black;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Montserrat', helvetica, arial, sans-serif;
+  }
+  .container{
+    position: relative;
+    display: block;
+    width: 100vmin;
+    height: 100%;
+    margin: auto;
+    z-index: 100;
+
+    .carousel{
+        position: absolute;
+        background: black;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        will-change: transform;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+
+        .info_back{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 13vh;
+            z-index: 30;
+            background-position: center 2%;
+            background-size: cover;
+            background-image: url(../img/earth.jpg);
+            text-align: center;
+
+            h1{
+                text-align: center;
+                color: white;
+                margin-top: 1vh;
+                font-weight: 300;
+                font-size: 3vh;
+                font-family: 'Montserrat', helvetica, arial, sans-serif;;
+                text-transform: uppercase;
+                letter-spacing: 15px;
+                opacity: 0;
+
+                .letter {
+                    display: inline-block;
+                    line-height: 1em;
+                    opacity: 0;
+                }
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-image: linear-gradient(transparent,black);
+                opacity: 1;
+            }
+      }
+      .active{
+        display: block !important;
+      }
+      .citem{
+          display: none;
+          background: white;
+          width: 100%;
+          height: 100%;
+          text-align: justify;
+          transition: all 0.4s;
+
+          h1{
+              color: black;
+              font-weight: 400;
+              margin-top: 15vh;
+              padding: 2vmin 7vmin;
+              display: block;
+              width: 100%;
+              background: #eee;
+          }
+          p{
+              color: #777;
+              font-size: 15px;
+              padding: 20px 7vmin;
+              
+              span{
+                  color: #555;
+                  font-size:19px;
+                  display: block;
+                  padding: 15px 0;
+              }
+            }
+            ul{
+                color: #777;
+                padding:0 12vmin;
+            } 
+      }
+  }
+    .menu{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background: white;
+        display: none;
+
+        .close{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+    }
+    .fixed_banner{
+        position: absolute;
+        width: 100%;
+        z-index: 5;
+
+        i{
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    }
+    .content{
+        position: relative;
+        width: 100%;
+        height: 73vh;
+        text-align: center;
+
+        .title{
+            font-weight: 300;
+            font-size: 5.8vh;
+            color: #ccc;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            padding-top: 6vh;
+            opacity: 0;
+
+            .letter{
+                display: inline-block;
+                line-height: 1em;
+                opacity: 0;  
+            }
+        }
+        .helmet {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 9vmin;
+
+            img {
+                position: absolute;
+                width: 100vmin;
+                margin: auto;
+                top: -1vmin;
+                bottom: 0vmin;
+                left: 0;
+                right: 0;
+                user-drag: none;
+                user-select: none;
+                -moz-user-select: none;
+                -webkit-user-drag: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+            .planet_position {
+                position: absolute;
+                width: 37vmin;
+                height: 37vmin;
+                background: black;
+                box-shadow: 0 10px 20px 10px black;
+                border-radius: 50%;
+                margin: auto;
+                top: 0;
+                bottom: 12vmin;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                overflow: hidden;
+
+                .planet_shadow {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    box-shadow: inset 0 -1.5vmax 3vmax 1.2vmax black;
+                    border-radius: 50%;
+                    z-index: 3;
+                }
+                .planet_photo {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: url("../img/earth.jpg");
+                    background-repeat: no-repeat;
+                    background-position: center -75%;
+                    background-size: 150%;
+                    z-index: 1;
+                    will-change: background;
+                }
+            }
+        }
+    }
+    .bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 28vh;
+
+        .nav {
+            width: 100%;
+            height: 40px;
+            padding-top: 15px;
+
+            span {
+                color: #999;
+                cursor: pointer;
+                
+                i {
+                    font-size: 40px;
+                    font-weight: 200;
+                }
+                &:nth-child(1) {
+                    padding-left: 10vmin;
+                }
+                &:nth-child(2) {
+                    padding-right: 10vmin;
+                    float: right;
+                }
+            }
+        }
+        .orbit {
+            position: absolute;
+            top: 5vh;
+            width: 100%;
+            height: 100vmin;
+            border-radius: 50%;
+            border: 3px solid #eee;
+            margin: auto;
+            left: 0;
+            right: 0;
+
+            .planet_container {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                transition: -webkit-transform 0.7s ease-in;
+                transition: transform 0.7s ease-in;
+                transition: transform 0.7s ease-in, -webkit-transform 0.7s ease-in;
+                
+                .planet {
+                    position: absolute;
+                    border-radius: 50%;
+                    width: 5vmin;
+                    height: 5vmin;
+                    transition: -webkit-transform 0.4s linear;
+                    transition: transform 0.4s linear;
+                    transition: transform 0.4s linear, -webkit-transform 0.4s linear;
+                    will-change: transform;
+                }
+                .pt {
+                    transition: -webkit-transform 0.4s ease-in;
+                    transition: transform 0.4s ease-in;
+                    transition: transform 0.4s ease-in, -webkit-transform 0.4s ease-in;
+                    -webkit-transform: scale(1.7);
+                            transform: scale(1.7);
+                    will-change: transform;
+                }
+                .earth {
+                    background: #3399ff;
+                    top: -2.5vmin;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+
+                    .moon span {
+                        top: -1vmin;
+                        left: -1vmin;
+                    }
+                }
+                .mars {
+                    background: #FDB05E;
+                    right: 12vmin;
+                    top: 12vmin;
+
+                    .moon span {
+                        width: 0.5vmin;
+                        height: 0.5vmin;
+
+                        :nth-child(1) {
+                            top: -1vmin;
+                            left: -1vmin;
+                        }
+                        :nth-child(2) {
+                            left: 1vmin;
+                            bottom: -1vmin !important;
+                        }
+                    }
+                }
+                .jupiter {
+                    background: #996633;
+                    right: -2.5vmin;
+                    bottom: 46.5vmin;
+                }
+                .saturn {
+                    background: #8A8975;
+                    right: 12vmin;
+                    bottom: 12vmin;
+
+                    .ring {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        box-shadow: 0 0 0 5px white, 0 0 0 8px rgba(0, 0, 0, 0.5), 0 0 0 12px #d6d6c2;
+                        border-radius: 50%;
+                    }
+                }
+                .uranus {
+                    background: #C4EAED;
+                    right: 0;
+                    left: 0;
+                    margin: auto;
+                    bottom: -2.5vmin;
+                }
+                .neptune {
+                    background: #3347BA;
+                    left: 12vmin;
+                    bottom: 12vmin;
+                }
+                .mercury {
+                    background: #6E6E6E;
+                    left: -2.5vmin;
+                    bottom: 46.5vmin;
+                }
+                .venus {
+                    background: #d2a679;
+                    left: 12vmin;
+                    top: 12vmin;
+                }
+            }
+            .name_container {
+                position: absolute;
+                display: flex;
+                width: auto;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 8vh;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+
+                .more {
+                    width: 100%;
+                    padding: 8px 0;
+                    color: #bbb;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: color 0.2s;
+
+                    :hover {
+                        color: #888;
+                        transition: color 0.3s;
+                    }
+                }
+                .pn {
+                    font-size: 25px;
+                    color: #666;
+                    text-transform: uppercase;
+                    padding-bottom: 4px;
+                    letter-spacing: 8px;
+                    padding-left: 8px;
+                    border-bottom: 3px solid #bbb;
+
+                    .letter {
+                        display: inline-block;
+                        line-height: 1em;
+                        opacity: 0;
+                    }
+                      
+                }
+            }
+        }
+    }
+}
+.moon {
+    width: 100%;
+    height: 100%;
+    -webkit-animation: planet_rotation 2s infinite linear;
+    animation: planet_rotation 2s infinite linear;
+
+    span {
+        width: 0.8vmin;
+        height: 0.8vmin;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+    }
+  }
+  @-webkit-keyframes planet_rotation {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes planet_rotation {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
